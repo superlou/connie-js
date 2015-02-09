@@ -1,0 +1,16 @@
+.map-tool svg {
+  width: 800px;
+  height: 400px;
+  background: #eee;
+
+  .room {
+    fill-opacity: 10%;
+    stroke-width: 1px;
+    stroke: #135;
+    fill: #357;
+
+    &:hover {
+      fill-opacity: 20%;
+    }
+  }
+}
