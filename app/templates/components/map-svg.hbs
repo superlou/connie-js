@@ -1,0 +1,19 @@
+{{#each image in model.images}}
+  <image {{bind-attr xlink:href=image}} x="0" y="0" width="600px" height="400px"/>
+{{/each}}
+
+{{#each room in model.rooms}}
+  {{map-area
+    model=room
+    selectedArea=selectedArea
+    action='selectArea'
+    }}
+{{/each}}
+
+{{#each point in tempPoints}}
+  <circle
+    {{bind-attr cx='point.firstObject'}}
+    {{bind-attr cy='point.lastObject'}}
+    r="5"
+  />
+{{/each}}

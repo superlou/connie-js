@@ -2,22 +2,8 @@
   <a href='#' {{action 'addRoom'}}>Add Room</a>
 </div>
 
-<svg>
-  {{#each image in model.images}}
-    <image {{bind-attr xlink:href=image}} x="0" y="0" width="600px" height="400px"/>
-  {{/each}}
+{{map-svg model=model editingState=editingState}}
 
-  {{#each room in model.rooms}}
-    <polygon {{bind-attr points=room.points}} class="room"/>
-  {{/each}}
-
-  {{#each point in roomPoints}}
-    <circle
-      {{bind-attr cx='point.firstObject'}}
-      {{bind-attr cy='point.lastObject'}}
-      r="5"
-    />
-  {{/each}}
-</svg>
-{{roomPoints}}
-{{editingState}}
+<div>
+  {{editingState}}
+</div>

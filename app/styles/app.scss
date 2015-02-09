@@ -1,16 +1,25 @@
-.map-tool svg {
+.map-tool {
   width: 800px;
   height: 400px;
-  background: #eee;
 
-  .room {
-    fill-opacity: 10%;
-    stroke-width: 1px;
-    stroke: #135;
-    fill: #357;
+  svg {
+    width: 800px;
+    height: 400px;
+    background: #eee;
 
-    &:hover {
-      fill-opacity: 20%;
+    .area {
+      fill-opacity: 10%;
+      stroke-width: 1px;
+      stroke: #135;
+      fill: #357;
+
+      &:hover {
+        fill-opacity: 20%;
+      }
+
+      &.is-selected {
+        fill-opacity: 40%;
+      }
     }
   }
 }
