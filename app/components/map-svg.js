@@ -12,12 +12,12 @@ export default Ember.Component.extend({
   },
 
   click: function(event) {
-    if (this.get('editingState') === 'addingRoom') {
+    if (this.get('editingState') === 'addingArea') {
       var x = event.offsetX;
       var y = event.offsetY;
 
-      if (this.closesRoom(x, y)) {
-        this.finalizeRoom();
+      if (this.closesArea(x, y)) {
+        this.finalizeArea();
       } else {
         this.get('tempPoints').pushObject([x, y]);
       }
@@ -30,7 +30,7 @@ export default Ember.Component.extend({
     this.set('selectedArea', null);
   },
 
-  closesRoom: function(x, y) {
+  closesArea: function(x, y) {
     if (this.get('tempPoints').length > 0) {
       var x0 = this.get('tempPoints')[0][0];
       var y0 = this.get('tempPoints')[0][1];
@@ -45,14 +45,14 @@ export default Ember.Component.extend({
     }
   },
 
-  finalizeRoom: function() {
-    var newRoomPoints = this.get('tempPoints');
+  finalizeArea: function() {
+    var newAreaPoints = this.get('tempPoints');
 
-    if (newRoomPoints.length >= 3) {
-      var svgPoints = newRoomPoints.join(' ');
+    if (newAreaPoints.length >= 3) {
+      var svgPoints = newAreaPoints.join(' ');
 
-      this.get('model.rooms').pushObject(Ember.Object.create({
-        name: 'New Room',
+      this.get('model.areas').pushObject(Ember.Object.create({
+        name: 'New Area',
         points: svgPoints
       }));
     }

@@ -2,9 +2,9 @@
   <image {{bind-attr xlink:href=image}} x="0" y="0" width="600px" height="400px"/>
 {{/each}}
 
-{{#each room in model.rooms}}
+{{#each area in model.areas}}
   {{map-area
-    model=room
+    model=area
     selectedArea=selectedArea
     action='selectArea'
     }}

@@ -7,7 +7,7 @@ export default Ember.Route.extend({
       images: [
         'images/doubletree_lobby.png'
       ],
-      rooms: [
+      areas: [
         Ember.Object.create({
           name: 'Main Events B',
           points: '210,8 290,86 215,160 135,83'

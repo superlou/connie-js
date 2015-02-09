@@ -4,8 +4,8 @@ export default Ember.Component.extend({
   classNames: ['map-tool'],
 
   actions: {
-    addRoom: function() {
-      this.set('editingState', 'addingRoom');
+    addArea: function() {
+      this.set('editingState', 'addingArea');
     }
   }
 });
