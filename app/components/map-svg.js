@@ -11,11 +11,45 @@ export default Ember.Component.extend({
     }
   },
 
-  click: function(event) {
-    if (this.get('editingState') === 'addingArea') {
-      var x = event.offsetX;
-      var y = event.offsetY;
+  setupSvgPanZoom: function() {
+    this.set('svgPanZoom', svgPanZoom(this.$()[0]));
+  }.on('didInsertElement'),
 
+  getTransform: function() {
+    var attr = $(this.$('.svg-pan-zoom_viewport')).first().attr('transform');
+    attr = attr.replace("matrix(", "");
+    attr = attr.replace(")", "");
+
+    var items = attr.split(',').map(function(item) { return parseFloat(item) });
+    return items;
+  },
+
+  inverseTransform: function(point, matrix) {
+    var a = matrix[0];
+    var b = matrix[1];
+    var c = matrix[2];
+    var d = matrix[3];
+    var e = matrix[4];
+    var f = matrix[5];
+
+
+    var x = (point[0] - e) / a;
+    var y = (point[1] - f) / d;
+
+    return [x, y];
+  },
+
+  click: function(event) {
+    var x = event.offsetX;
+    var y = event.offsetY;
+
+    var transform = this.getTransform();
+    var point = this.inverseTransform([x, y], transform);
+
+    x = point[0];
+    y = point[1];
+
+    if (this.get('editingState') === 'addingArea') {
       if (this.closesArea(x, y)) {
         this.finalizeArea();
       } else {

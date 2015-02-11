@@ -1,19 +1,21 @@
-{{#each image in model.images}}
-  <image {{bind-attr xlink:href=image}} x="0" y="0" width="600px" height="400px"/>
-{{/each}}
+<g class="svg-pan-zoom_viewport">
+  {{#each image in model.images}}
+    <image {{bind-attr xlink:href=image}} x="0" y="0" width="600px" height="400px"/>
+  {{/each}}
 
-{{#each area in model.areas}}
-  {{map-area
-    model=area
-    selectedArea=selectedArea
-    action='selectArea'
-    }}
-{{/each}}
+  {{#each area in model.areas}}
+    {{map-area
+      model=area
+      selectedArea=selectedArea
+      action='selectArea'
+      }}
+  {{/each}}
 
-{{#each point in tempPoints}}
-  <circle
-    {{bind-attr cx='point.firstObject'}}
-    {{bind-attr cy='point.lastObject'}}
-    r="5"
-  />
-{{/each}}
+  {{#each point in tempPoints}}
+    <circle
+      {{bind-attr cx='point.firstObject'}}
+      {{bind-attr cy='point.lastObject'}}
+      r="5"
+    />
+  {{/each}}
+</g>

@@ -2,8 +2,10 @@
   <a href='#' {{action 'addArea'}}>Add Area</a>
 </div>
 
-{{map-svg model=model editingState=editingState}}
+{{map-svg model=model editingState=editingState selectedArea=selectedArea}}
 
 <div>
   {{editingState}}
 </div>
+
+{{input value=selectedArea.name}}
