@@ -4,6 +4,9 @@ export default Ember.Component.extend({
   tagName: 'svg',
   tempPoints: [],
   selectedArea: null,
+  transform: '',
+  dotRadius: 5,
+  dotRadiusScaled: 5,
 
   actions: {
     selectArea: function(area) {
@@ -12,8 +15,16 @@ export default Ember.Component.extend({
   },
 
   setupSvgPanZoom: function() {
-    this.set('svgPanZoom', svgPanZoom(this.$()[0]));
+    this.set('svgPanZoom', svgPanZoom(this.$()[0], {
+      onZoom: (scale)=>{  // necessary to keep context
+        this.onZoom(scale);
+      }
+    }));
   }.on('didInsertElement'),
+
+  onZoom: function(newScale) {
+    this.set('dotRadiusScaled', this.get('dotRadius') / newScale);
+  },
 
   getTransform: function() {
     var attr = $(this.$('.svg-pan-zoom_viewport')).first().attr('transform');
