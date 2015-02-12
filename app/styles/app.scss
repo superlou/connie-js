@@ -1,3 +1,8 @@
+html, body {
+  margin: 0px;
+  padding: 0px;
+}
+
 .map-tool {
   width: 800px;
   height: 400px;
@@ -20,6 +25,16 @@
       &.is-selected {
         fill-opacity: 40%;
       }
+    }
+
+    circle.temp {
+      fill: red;
+    }
+
+    polyline.temp {
+      fill: none;
+      stroke: red;
+      stroke-width: 1;
     }
   }
 }

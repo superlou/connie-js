@@ -3,10 +3,12 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   tagName: 'svg',
   tempPoints: [],
+  tempLine: '',
   selectedArea: null,
   transform: '',
-  dotRadius: 5,
-  dotRadiusScaled: 5,
+  dotRadius: 3,
+  dotRadiusScaled: 3,
+  tempThing: "100,100 300,100",
 
   actions: {
     selectArea: function(area) {
@@ -43,17 +45,35 @@ export default Ember.Component.extend({
     var e = matrix[4];
     var f = matrix[5];
 
-
     var x = (point[0] - e) / a;
     var y = (point[1] - f) / d;
 
     return [x, y];
   },
 
+  mouseDown: function(event) {
+    this.set('mouseDownLocation', [event.screenX, event.screenY]);
+  },
+
+  dragDistance: function(x, y) {
+    var start = this.get('mouseDownLocation');
+    if (start) {
+      return Math.abs((start[0] - x)) + Math.abs((start[1] - y));
+    } else {
+      return 0;
+    }
+  },
+
   click: function(event) {
     var x = event.offsetX;
     var y = event.offsetY;
 
+    // Abort click event if we meant to drag
+    if (this.dragDistance(event.screenX, event.screenY) > 5) {
+      return;
+    }
+
+    // Transform coordinates after pan/zoom
     var transform = this.getTransform();
     var point = this.inverseTransform([x, y], transform);
 
@@ -65,6 +85,7 @@ export default Ember.Component.extend({
         this.finalizeArea();
       } else {
         this.get('tempPoints').pushObject([x, y]);
+        this.set('tempLine', this.get('tempLine') + " " + x + "," + y);
       }
     }
 
@@ -103,6 +124,7 @@ export default Ember.Component.extend({
     }
 
     this.set('tempPoints', []);
+    this.set('tempLine', '');
     this.set('editingState', null);
   }
 });

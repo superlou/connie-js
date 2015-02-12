@@ -12,10 +12,12 @@
   {{/each}}
 
   {{#each point in tempPoints}}
-    <circle
+    <circle class='temp'
       {{bind-attr cx='point.firstObject'}}
       {{bind-attr cy='point.lastObject'}}
       {{bind-attr r='dotRadiusScaled'}}
     />
   {{/each}}
+
+  <polyline class='temp' {{bind-attr points='tempLine'}} />
 </g>
