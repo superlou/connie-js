@@ -1,14 +1,45 @@
+@import "bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "bower_components/neat/app/assets/stylesheets/_neat";
+@import "bower_components/font-awesome/scss/font-awesome";
+
 html, body {
   margin: 0px;
   padding: 0px;
 }
 
+.content {
+  @include outer-container;
+
+  h2 {
+    @include span-columns(12);
+    padding: 1em;
+  }
+
+  .full {
+    @include span-columns(12);
+    padding: 0em 1em;
+  }
+
+  .area-name {
+    font-size: 2em;
+    border: none;
+  }
+}
+
 .map-tool {
-  width: 800px;
+  width: 100%;
   height: 400px;
 
+  .shadow {
+    box-shadow: inset 0px 2px 4px #eee, inset 0px -2px 4px #eee;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    pointer-events: none;
+  }
+
   svg {
-    width: 800px;
+    width: 100%;
     height: 400px;
     background: #fff;
 
@@ -35,6 +66,17 @@ html, body {
       fill: none;
       stroke: red;
       stroke-width: 1;
+    }
+  }
+
+  .toolbar {
+    a {
+      text-decoration: none;
+      color: #357;
+
+      &:hover {
+        color: #135;
+      }
     }
   }
 }

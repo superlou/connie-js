@@ -1,11 +1,22 @@
-<div class="toolbar">
-  <a href='#' {{action 'addArea'}}>Add Area</a>
+<div class='content'>
+  <div class='full toolbar'>
+    <a href='#' {{action 'addArea'}}>
+      <i class='fa fa-plus'></i> Add Area
+    </a>
+  </div>
 </div>
 
+<div class='shadow'></div>
 {{map-svg model=model editingState=editingState selectedArea=selectedArea}}
 
 <div>
   {{editingState}}
 </div>
 
-{{input value=selectedArea.name}}
+{{#if selectedArea}}
+  <div class='content'>
+    <div class='full'>
+      {{input value=selectedArea.name class='area-name'}}
+    </div>
+  </div>
+{{/if}}
