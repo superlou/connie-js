@@ -116,11 +116,7 @@ export default Ember.Component.extend({
 
     if (newAreaPoints.length >= 3) {
       var svgPoints = newAreaPoints.join(' ');
-
-      this.get('model.areas').pushObject(Ember.Object.create({
-        name: 'New Area',
-        points: svgPoints
-      }));
+      this.sendAction('createMapArea', svgPoints);
     }
 
     this.set('tempPoints', []);

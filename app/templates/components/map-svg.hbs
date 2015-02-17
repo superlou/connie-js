@@ -1,9 +1,7 @@
 <g class="svg-pan-zoom_viewport">
-  {{#each image in model.images}}
-    <image {{bind-attr xlink:href=image}} x="0" y="0" width="600px" height="400px"/>
-  {{/each}}
+  <image {{bind-attr xlink:href=model.image}} x="0" y="0" width="600px" height="400px"/>
 
-  {{#each area in model.areas}}
+  {{#each area in model.mapAreas}}
     {{map-area
       model=area
       selectedArea=selectedArea

@@ -7,7 +7,12 @@
 </div>
 
 <div class='shadow'></div>
-{{map-svg model=model editingState=editingState selectedArea=selectedArea}}
+{{map-svg
+  model=model
+  editingState=editingState
+  selectedArea=selectedArea
+  createMapArea='createMapArea'
+  }}
 
 <div>
   {{editingState}}
