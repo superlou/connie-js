@@ -2,4 +2,12 @@
   <h2>{{model.name}}</h2>
 </div>
 
-{{map-tool model=model createMapArea='createMapArea'}}
+{{map-tool model=model createMapArea='createMapArea' selectedArea=selectedArea}}
+
+{{#if selectedArea}}
+  <div class='content'>
+    <div class='full'>
+      {{input value=selectedArea.name class='area-name'}}
+    </div>
+  </div>
+{{/if}}
