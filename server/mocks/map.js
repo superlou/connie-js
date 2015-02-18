@@ -21,16 +21,28 @@ module.exports = function(app) {
         image: 'images/doubletree_lobby.png',
         map_area_ids: [1, 2]
       },
+
       map_areas: [
         {
           id: 1,
-          name: 'Main Events B',
+          area_id: 1,
           points: '210,8 290,86 215,160 135,83'
         },
         {
           id: 2,
-          name: 'Mirabelle',
+          area_id: 2,
           points: '418,61 455,61 512,115 511,153 428,155 419,147'
+        }
+      ],
+
+      areas: [
+        {
+          id: 1,
+          name: 'Main Events B'
+        },
+        {
+          id: 2,
+          name: 'Mirabelle'
         }
       ]
     }

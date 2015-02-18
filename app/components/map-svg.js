@@ -4,15 +4,15 @@ export default Ember.Component.extend({
   tagName: 'svg',
   tempPoints: [],
   tempLine: '',
-  selectedArea: null,
+  selectedMapArea: null,
   transform: '',
   dotRadius: 3,
   dotRadiusScaled: 3,
   tempThing: "100,100 300,100",
 
   actions: {
-    selectArea: function(area) {
-      this.set('selectedArea', area);
+    selectMapArea: function(mapArea) {
+      this.set('selectedMapArea', mapArea);
     }
   },
 
@@ -93,7 +93,7 @@ export default Ember.Component.extend({
   },
 
   deselectAll: function() {
-    this.set('selectedArea', null);
+    this.set('selectedMapArea', null);
   },
 
   closesArea: function(x, y) {

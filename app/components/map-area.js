@@ -16,8 +16,8 @@ export default Ember.Component.extend({
   }.property('model.points'),
 
   isSelected: function() {
-    return this.get('selectedArea') === this.get('model');
-  }.property('selectedArea'),
+    return this.get('selectedMapArea') === this.get('model');
+  }.property('selectedMapArea'),
 
   // Hack for https://github.com/emberjs/ember.js/issues/9745
   propertyObserver: function() {

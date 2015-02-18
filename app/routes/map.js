@@ -7,11 +7,15 @@ export default Ember.Route.extend({
 
   actions: {
     createMapArea: function(points) {
-      this.store.createRecord('mapArea', {
-        name: "New Area",
+      var area = this.store.createRecord('area', {
+        name: 'New Area',
+      });
+
+      var mapArea = this.store.createRecord('mapArea', {
         points: points,
-        map: this.modelFor(this.routeName)
-      })
+        map: this.modelFor(this.routeName),
+        area: area
+      });
     }
   }
 });

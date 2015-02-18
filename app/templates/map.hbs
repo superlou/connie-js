@@ -2,12 +2,12 @@
   <h2>{{model.name}}</h2>
 </div>
 
-{{map-tool model=model createMapArea='createMapArea' selectedArea=selectedArea}}
+{{map-tool model=model createMapArea='createMapArea' selectedMapArea=selectedMapArea}}
 
-{{#if selectedArea}}
+{{#if selectedMapArea}}
   <div class='content'>
     <div class='full'>
-      {{input value=selectedArea.name class='area-name'}}
+      {{input value=selectedMapArea.area.name class='area-name'}}
     </div>
   </div>
 {{/if}}
