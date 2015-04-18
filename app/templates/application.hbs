@@ -1,11 +1,15 @@
 <div id='header'>
-  {{input value='search' classNames='search'}}
-
   <select>
     {{#each con in model}}
       <option>{{link-to con.name 'con' con}}</option>
     {{/each}}
   </select>
+  <div id='sidebar_toggle'>
+    {{fa-icon 'bars'}}
+  </div>
+  <div id='search'>
+    {{input value=search classNames='search' placeholder='Search'}}
+  </div>
 </div>
 
 {{outlet}}
