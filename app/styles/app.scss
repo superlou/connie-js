@@ -1,13 +1,76 @@
 @import "bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "bower_components/neat/app/assets/stylesheets/_neat";
 @import "bower_components/font-awesome/scss/font-awesome";
+@import "table";
+
+$background: #e5e5f0;
 
 html, body {
   margin: 0px;
   padding: 0px;
+  background: $background;
+  font-family: sans-serif;
+}
+
+#header {
+  background: white;
+  border-bottom: 2px solid darken(#fff, 5);
+  position: relative;
+
+  input.search {
+    width: 100%;
+    font-size: 1.4em;
+    padding: 0.4em;
+    border: none;
+  }
+
+  select {
+    position: absolute;
+    right: 0px;
+    top: 10px;
+  }
+}
+
+.con-nav {
+  background: white;
+  border-bottom: 3px solid darken($background, 10);
+
+  ul {
+    list-style-type: none;
+    display: block;
+    padding: 2em 1em 0.4em 1em;
+    margin: 0px;
+  }
+
+  li {
+    display: inline;
+    font-size: 1.2em;
+    color: #777;
+
+    a {
+      text-decoration: none;
+      padding: 6px 10px;
+      margin: 0px 10px;
+      color: #777;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 0.8em;
+
+      &:hover {
+        border-bottom: 3px solid gray;
+        color: #444;
+      }
+    }
+
+    a.active {
+      border-bottom: 3px solid #3BB0FA;
+      color: black;
+    }
+  }
 }
 
 .content {
+  padding: 0em 1em;
   @include outer-container;
 
   h2 {

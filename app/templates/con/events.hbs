@@ -1,0 +1,16 @@
+<h1>Events</h1>
+
+<table>
+<tbody>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+  </tr>
+  {{#each event in model}}
+    <tr>
+      <td>{{event.id}}</td>
+      <td>{{link-to event.name 'con.event' event}}</td>
+    </tr>
+  {{/each}}
+</tbody>
+</table>

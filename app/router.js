@@ -6,7 +6,18 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('map', {path: 'map/:mapId'});
+  this.resource('con', {path: 'con/:con_id'}, function() {
+    this.route('events');
+    this.route('event', {path: 'event/:event_id'});
+
+    this.route('people');
+    this.resource('person', {path: 'person/:event_id'});
+
+    this.route('places');
+    this.resource('place', {path: 'place/:event_id'});
+  });
+
+  this.resource('map', {path: 'map/:map_id'});
 });
 
 export default Router;
