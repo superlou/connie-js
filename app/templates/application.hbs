@@ -1,9 +1,11 @@
 <div id='header'>
-  <select>
-    {{#each con in model}}
-      <option>{{link-to con.name 'con' con}}</option>
-    {{/each}}
-  </select>
+  {{view 'select'
+    content=cons
+    optionValuePath="content.id"
+    optionLabelPath="content.name"
+    value=activeCon
+    prompt="Select Con..."}}
+
   <div id='sidebar_toggle'>
     {{fa-icon 'bars'}}
   </div>
