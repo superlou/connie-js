@@ -4,14 +4,14 @@ module.exports = function(app) {
 
   conRouter.get('/', function(req, res) {
     res.send({
-      'cons': [
+      'events': [
         {
           id: 1,
-          name: 'Bureaucracon 2014'
+          name: 'Pre-Registration'
         },
         {
           id: 2,
-          name: 'Bureaucracon 2015'
+          name: 'Registration'
         }
       ]
     });
@@ -23,8 +23,9 @@ module.exports = function(app) {
 
   conRouter.get('/:id', function(req, res) {
     res.send({
-      'con': {
-        id: req.params.id
+      'event': {
+        id: 1,
+        name: 'Pre-Registration'
       }
     });
   });
@@ -41,5 +42,5 @@ module.exports = function(app) {
     res.status(204).end();
   });
 
-  app.use('/api/cons', conRouter);
+  app.use('/api/events', conRouter);
 };
