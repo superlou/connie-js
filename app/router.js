@@ -6,18 +6,25 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('con', {path: 'con/:con_id'}, function() {
-    this.route('events');
-    this.route('event', {path: 'event/:event_id'});
+  this.route('con', {path: '/con/:con_id'}, function() {
+    this.route('events', {path: '/events'}, function() {
+      this.route('new', {path: '/new'});
+      this.route('event', {path: '/:event_id'});
+      this.route('edit', {path: '/:event_id/edit'});
+    });
 
     this.route('people');
-    this.resource('person', {path: 'person/:event_id'});
+    this.route('person', {path: 'person/:event_id'});
 
     this.route('places');
-    this.resource('place', {path: 'place/:event_id'});
+    this.route('place', {path: 'place/:event_id'});
   });
 
-  this.resource('map', {path: 'map/:map_id'});
+  this.route('map', {path: 'map/:map_id'});
+
+  this.route('ember', function() {
+    this.route('events', function() {});
+  });
 });
 
 export default Router;
