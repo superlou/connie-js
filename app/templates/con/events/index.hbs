@@ -11,7 +11,7 @@
   {{#each event in model}}
     <tr>
       <td>{{event.id}}</td>
-      <td>{{link-to event.name 'con.events.event' event}}</td>
+      <td>{{link-to event.name 'con.events.show' event}}</td>
       <td>{{schedule-info start=event.start finish=event.finish}}</td>
     </tr>
   {{/each}}
