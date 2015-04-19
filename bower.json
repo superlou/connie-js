@@ -15,6 +15,7 @@
     "svg-pan-zoom": "~3.1.1",
     "bourbon": "~4.2.0",
     "neat": "~1.7.1",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "ember-cli-moment-shim": "~0.1.0"
   }
 }
