@@ -12,6 +12,39 @@ html, body {
   font-family: sans-serif;
 }
 
+.btn {
+  border: 3px solid darken($background, 10);
+  border-radius: 100px;
+  padding: 0.8em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+
+  text-decoration: none;
+  color: darken($background, 30);
+  background: none;
+
+  &:hover {
+    color: darken($background, 50);
+    border-color: darken($background, 30);
+    background: lighten($background, 3);
+  }
+
+  @include transition(color 0.1s linear,
+                      border-color 0.1s linear,
+                      background 0.1s linear);
+}
+
+.page-heading {
+  float: left;
+}
+
+.actions {
+  float: right;
+  margin-top: 18px;
+}
+
 #header {
   background: white;
   border-bottom: 2px solid darken(#fff, 5);
