@@ -16,6 +16,9 @@
     "bourbon": "~4.2.0",
     "neat": "~1.7.1",
     "font-awesome": "~4.3.0",
-    "ember-cli-moment-shim": "~0.1.0"
+    "ember-cli-moment-shim": "~0.1.0",
+    "eonasdan-bootstrap-datetimepicker": "~4.7.14",
+    "moment": "~2.10.2",
+    "sugar": "~1.4.1"
   }
 }
