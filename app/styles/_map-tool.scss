@@ -1,0 +1,53 @@
+.map-tool {
+  width: 100%;
+
+  .shadow {
+    box-shadow: inset 0px 2px 4px #eee, inset 0px -2px 4px #eee;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  svg {
+    width: 100%;
+    height: 400px;
+    background: #fff;
+
+    .area {
+      fill-opacity: 10%;
+      stroke-width: 1px;
+      stroke: #135;
+      fill: #357;
+
+      &:hover {
+        fill-opacity: 20%;
+      }
+
+      &.is-selected {
+        fill-opacity: 40%;
+      }
+    }
+
+    circle.temp {
+      fill: red;
+    }
+
+    polyline.temp {
+      fill: none;
+      stroke: red;
+      stroke-width: 1;
+    }
+  }
+
+  .toolbar {
+    a {
+      text-decoration: none;
+      color: #357;
+
+      &:hover {
+        color: #135;
+      }
+    }
+  }
+}

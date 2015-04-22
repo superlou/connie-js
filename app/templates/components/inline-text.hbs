@@ -1,5 +1,5 @@
 {{#if isEditing}}
-  {{focus-textfield value=value focus-out='done'}}
+  {{focus-textfield value=value focus-out='done' enter='done'}}
 {{else}}
-  {{value}} <a href='#' {{action 'edit'}}>edit</a>
+  {{value}} <a href='#' {{action 'edit'}} class='editHandle'>{{fa-icon 'pencil'}} edit</a>
 {{/if}}

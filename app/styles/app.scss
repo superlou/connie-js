@@ -1,98 +1,37 @@
 @import "bower_components/bourbon/app/assets/stylesheets/bourbon";
 @import "bower_components/neat/app/assets/stylesheets/_neat";
 @import "bower_components/font-awesome/scss/font-awesome";
-@import "table";
 
 $background: #EBF1F5;
+
+@import "buttons";
+@import "table";
+@import "headings";
 
 html, body {
   margin: 0px;
   padding: 0px;
   background: $background;
   font-family: sans-serif;
+  font-size: 16px;
 }
 
-.btn {
-  border: 3px solid darken($background, 10);
-  border-radius: 100px;
-  padding: 0.8em;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  font-weight: bold;
-  display: inline-block;
-
+a.editHandle {
+  font-size: 1em;
   text-decoration: none;
-  color: darken($background, 30);
-  background: none;
+  font-size: 16px;
+  color: darken($background, 20);
 
   &:hover {
-    color: darken($background, 50);
-    border-color: darken($background, 30);
-    background: lighten($background, 3);
+    color: darken($background, 60);
   }
 
-  @include transition(color 0.1s linear,
-                      border-color 0.1s linear,
-                      background 0.1s linear);
-
-  &.danger {
-    &:hover {
-      border-color: #faa;
-      color: darken(#faa, 10);
-    }
-  }
-
-  &.hide {
-    opacity: 0;
-    padding: 0px;
-    width: 0px;
-    border: none;
-  }
-
-  &.show {
-    opacity: 1.0;
-  }
-
-  @include transition(opacity 0.1s linear,
-                      padding 0.1s linear,
-                      width 0.1s linear,
-                      border 0.1s linear);
+  @include transition(color 0.1s linear);
 }
 
-.page-heading {
-  h1 {
-    display: inline-block;
-  }
-
+textarea {
   width: 100%;
-}
-
-.actions {
-  float: right;
-  margin-top: 18px;
-}
-
-dl {
-}
-
-dt {
-  float: left;
-  clear: left;
-  font-weight: bold;
-  margin: 0px;
-  padding: 1em 1em 0.5em 0;
-  width: 140px
-}
-
-dd {
-  margin: 0px;
-  padding: 1em 1em 0.5em 0;
-
-  border-bottom: 1px solid darken($background, 10);
-
-  &:last-child {
-    border-bottom: none;
-  }
+  min-height: 100px;
 }
 
 #header {
@@ -187,11 +126,6 @@ dd {
   padding: 0em 1em;
   @include outer-container;
 
-  h2 {
-    @include span-columns(12);
-    padding: 1em;
-  }
-
   .full {
     @include span-columns(12);
     padding: 0em 1em;
@@ -201,58 +135,25 @@ dd {
     font-size: 2em;
     border: none;
   }
+
+  .details {
+    background: white;
+
+    .half-box {
+      @include span-columns(6);
+    }
+  }
 }
 
-.map-tool {
+.page-heading {
+  h1 {
+    display: inline-block;
+  }
+
   width: 100%;
+}
 
-  .shadow {
-    box-shadow: inset 0px 2px 4px #eee, inset 0px -2px 4px #eee;
-    width: 100%;
-    height: 400px;
-    position: absolute;
-    pointer-events: none;
-  }
-
-  svg {
-    width: 100%;
-    height: 400px;
-    background: #fff;
-
-    .area {
-      fill-opacity: 10%;
-      stroke-width: 1px;
-      stroke: #135;
-      fill: #357;
-
-      &:hover {
-        fill-opacity: 20%;
-      }
-
-      &.is-selected {
-        fill-opacity: 40%;
-      }
-    }
-
-    circle.temp {
-      fill: red;
-    }
-
-    polyline.temp {
-      fill: none;
-      stroke: red;
-      stroke-width: 1;
-    }
-  }
-
-  .toolbar {
-    a {
-      text-decoration: none;
-      color: #357;
-
-      &:hover {
-        color: #135;
-      }
-    }
-  }
+.actions {
+  float: right;
+  margin-top: 18px;
 }

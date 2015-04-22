@@ -1,0 +1,46 @@
+.btn {
+  border: 3px solid darken($background, 10);
+  border-radius: 100px;
+  padding: 0.8em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: bold;
+  display: inline-block;
+
+  text-decoration: none;
+  color: darken($background, 30);
+  background: none;
+
+  &:hover {
+    color: darken($background, 50);
+    border-color: darken($background, 30);
+    background: lighten($background, 3);
+  }
+
+  @include transition(color 0.1s linear,
+                      border-color 0.1s linear,
+                      background 0.1s linear);
+
+  &.danger {
+    &:hover {
+      border-color: #faa;
+      color: darken(#faa, 10);
+    }
+  }
+
+  &.hide {
+    opacity: 0;
+    padding: 0px;
+    width: 0px;
+    border: none;
+  }
+
+  &.show {
+    opacity: 1.0;
+  }
+
+  @include transition(opacity 0.1s linear,
+                      padding 0.1s linear,
+                      width 0.1s linear,
+                      border 0.1s linear);
+}

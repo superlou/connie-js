@@ -1,6 +1,6 @@
 {{#if isEditing}}
   {{human-datetime value=start}} to {{human-datetime value=finish}}
-  <a href='#' {{action 'done'}}>done</a>
+  <a href='#' {{action 'done'}} class='editHandle'>done</a>
 {{else}}
-  {{start}} to {{finish}} <a href='#' {{action 'edit'}}>edit</a>
+  {{start}} to {{finish}} <a href='#' {{action 'edit'}} class='editHandle'>{{fa-icon 'pencil'}} edit</a>
 {{/if}}

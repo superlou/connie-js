@@ -7,9 +7,18 @@
   </div>
 </div>
 
-<dl class='ios-dl'>
-  <dt>Description</dt>
-  <dd>{{inline-textarea value=model.description}}</dd>
-  <dt>Schedule</dt>
-  <dd>{{inline-dtrange start=model.start finish=model.finish}}</dd>
-</dl>
+<b>Todo dynamic summary of scheduling, location, and DRC health</b>
+<p>{{inline-textarea value=model.description}}</p>
+
+<div class='scheduling'>
+  <h2>Schedule</h2>
+  {{inline-dtrange start=model.start finish=model.finish}}
+</div>
+
+<div class='reservations'>
+  <h2>Reservations</h2>
+</div>
+
+<div class='reservations'>
+  <h2>Rules</h2>
+</div>

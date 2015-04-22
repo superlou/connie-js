@@ -18,10 +18,6 @@ Router.map(function() {
   });
 
   this.route('map', {path: 'map/:map_id'});
-
-  this.route('ember', function() {
-    this.route('events', function() {});
-  });
 });
 
 export default Router;
