@@ -13,6 +13,10 @@ export default Ember.Route.extend({
       model.save().then(() => {
         this.transitionTo('con.events');
       });
+    },
+
+    save: function() {
+      this.currentModel.save();
     }
   }
 });

@@ -1,5 +1,15 @@
-<h1>{{model.name}}</h1>
-{{link-to 'Edit' 'con.events.edit' model}}
-<a href='#' {{action 'delete'}}>Delete</a>
-<p>{{model.description}}</p>
-<p>{{model.start}} to {{model.finish}}</p>
+<div class='page-heading'>
+  <h1>{{inline-text value=model.name}}</h1>
+  <div class='actions'>
+    <a href='#' {{action 'save'}} class='btn {{visibility}}'>Save</a>
+    <a href='#' class='btn'>{{fa-icon 'files-o'}} Clone</a>
+    <a href='#' class='btn danger' {{action 'delete'}}>{{fa-icon 'trash'}} Delete</a>
+  </div>
+</div>
+
+<dl class='ios-dl'>
+  <dt>Description</dt>
+  <dd>{{inline-textarea value=model.description}}</dd>
+  <dt>Schedule</dt>
+  <dd>{{inline-dtrange start=model.start finish=model.finish}}</dd>
+</dl>

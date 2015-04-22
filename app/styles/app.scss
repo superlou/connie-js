@@ -34,15 +34,65 @@ html, body {
   @include transition(color 0.1s linear,
                       border-color 0.1s linear,
                       background 0.1s linear);
+
+  &.danger {
+    &:hover {
+      border-color: #faa;
+      color: darken(#faa, 10);
+    }
+  }
+
+  &.hide {
+    opacity: 0;
+    padding: 0px;
+    width: 0px;
+    border: none;
+  }
+
+  &.show {
+    opacity: 1.0;
+  }
+
+  @include transition(opacity 0.1s linear,
+                      padding 0.1s linear,
+                      width 0.1s linear,
+                      border 0.1s linear);
 }
 
 .page-heading {
-  float: left;
+  h1 {
+    display: inline-block;
+  }
+
+  width: 100%;
 }
 
 .actions {
   float: right;
   margin-top: 18px;
+}
+
+dl {
+}
+
+dt {
+  float: left;
+  clear: left;
+  font-weight: bold;
+  margin: 0px;
+  padding: 1em 1em 0.5em 0;
+  width: 140px
+}
+
+dd {
+  margin: 0px;
+  padding: 1em 1em 0.5em 0;
+
+  border-bottom: 1px solid darken($background, 10);
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 #header {

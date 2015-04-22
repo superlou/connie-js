@@ -1,0 +1,6 @@
+{{#if isEditing}}
+  {{human-datetime value=start}} to {{human-datetime value=finish}}
+  <a href='#' {{action 'done'}}>done</a>
+{{else}}
+  {{start}} to {{finish}} <a href='#' {{action 'edit'}}>edit</a>
+{{/if}}
