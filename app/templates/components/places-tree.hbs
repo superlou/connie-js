@@ -1,0 +1,8 @@
+<ul>
+  {{#if isMoving}}
+    <li><a href='#' {{action 'move' null}}>&gt;</a></li>
+  {{/if}}
+  {{#each rootPlaces as |place|}}
+    {{place-node place=place move='move'}}
+  {{/each}}
+</ul>

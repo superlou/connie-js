@@ -14,7 +14,9 @@ Router.map(function() {
 
     this.route('people');
 
-    this.route('places');
+    this.route('places', function() {
+      this.route('show', {path: '/:place_id'});
+    });
   });
 
   this.route('map', {path: 'map/:map_id'});

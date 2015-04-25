@@ -1,0 +1,8 @@
+{{link-to place.name 'con.places.show' place}}
+<a href='#' {{action 'move' place}}>&gt;</a>
+
+<ul>
+{{#each place.children as |place|}}
+  {{place-node place=place move='move'}}
+{{/each}}
+</ul>
