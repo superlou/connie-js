@@ -7,8 +7,16 @@ export default Ember.Route.extend({
   },
 
   actions: {
-    reparent: function(child, parent) {
-      child.set('parent', parent);
+    reparentTo: function(parent) {
+      console.log('here');
+      this.controllerFor('con.places').set('moveChild.parent', parent);
+      this.controllerFor('con.places').set('isMoving', false);
+      this.controllerFor('con.places').set('moveChild', null);
+    },
+
+    move: function(child) {
+      this.controllerFor('con.places').set('isMoving', true)
+      this.controllerFor('con.places').set('moveChild', child);
     }
   }
 });

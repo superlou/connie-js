@@ -11,15 +11,8 @@ export default Ember.Component.extend({
   }.property('places', 'places.@each.parent'),
 
   actions: {
-    move: function(place) {
-      if (this.get('isMoving')) {
-        this.sendAction('reparent', this.get('moveChild'), place);
-        this.set('moveChild', null);
-      } else {
-        this.set('moveChild', place);
-      }
-
-      this.toggleProperty('isMoving');
+    reparentTo: function(place) {
+      this.sendAction('reparentTo', place)
     }
   }
 });

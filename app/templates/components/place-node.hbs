@@ -1,8 +1,11 @@
-{{link-to place.name 'con.places.show' place}}
-<a href='#' {{action 'move' place}}>&gt;</a>
+{{#if isMoving}}
+  <b><a href='#' {{action 'reparentTo' place}}>{{place.name}}</a></b>
+{{else}}
+  {{link-to place.name 'con.places.show' place}}
+{{/if}}
 
 <ul>
 {{#each place.children as |place|}}
-  {{place-node place=place move='move'}}
+  {{place-node place=place reparentTo='reparentTo' isMoving=isMoving}}
 {{/each}}
 </ul>

@@ -4,8 +4,8 @@ export default Ember.Component.extend({
   tagName: 'li',
 
   actions: {
-    move: function(place) {
-      this.sendAction('move', place);
+    reparentTo: function(place) {
+      this.sendAction('reparentTo', place);
     }
   }
 });
