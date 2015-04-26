@@ -12,6 +12,10 @@ Router.map(function() {
       this.route('show', {path: '/:event_id'});
     });
 
+    this.route('schedules', function() {
+      this.route('show', {path: '/:schedule_id'});
+    })
+
     this.route('people');
 
     this.route('places', function() {

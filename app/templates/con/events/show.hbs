@@ -17,6 +17,11 @@
 
 <div class='reservations'>
   <h2>Reservations</h2>
+  {{#each model.reservations as |reservation|}}
+    {{#link-to 'con.places.show' reservation.reservable}}
+      {{reservation.reservable.name}}
+    {{/link-to}}
+  {{/each}}
 </div>
 
 <div class='reservations'>
