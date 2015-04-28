@@ -1,0 +1,102 @@
+$header-height: 40px;
+
+.schedule-grid {
+  width: 100%;
+  background: white;
+
+  .reservables {
+    width: 180px;
+    float: left;
+
+    .reservable {
+      width: 100%;
+      height: 50px;
+      border-right: 2px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 1em;
+      text-align: center;
+    }
+
+    .header {
+      height: $header-height;
+      border-bottom: 1px solid #eee;
+      border-right: 2px solid #eee;
+    }
+  }
+
+  .track-container {
+    overflow-x: scroll;
+
+    .tracks {
+      .track {
+        float: left;
+        width: 100%;
+        height: 50px;
+        position: relative;
+        border-bottom: 1px solid #eee;
+
+        .reservation-block {
+          position: absolute;
+          box-sizing: border-box;
+          height: 50px;
+          overflow: hidden;
+          background: darken($background, 10);
+          border-left: 2px solid darken($background, 30);
+          padding: 1em;
+          font-size: 0.8em;
+        }
+
+        &:nth-child(odd) {
+          .reservation-block {
+            background: darken($background, 5);
+          }
+        }
+
+        .major-grid {
+          height: 100%;
+          float: left;
+          box-sizing: border-box;
+          border-left: 2px solid #eee;
+
+          &:first-child {
+            border-left: none;
+          }
+        }
+
+        .minor-grid {
+          height: 100%;
+          float: left;
+          box-sizing: border-box;
+          border-left: 1px solid #eee;
+        }
+      }
+    }
+
+    .header {
+      height: $header-height;
+      position: relative;
+      border-bottom: 1px solid #eee;
+
+      .hour {
+        float: left;
+        box-sizing: border-box;
+        border-left: 2px solid #eee;
+        text-align: center;
+        padding: 10px 0px;
+        height: 100%;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        .period {
+          vertical-align: top;
+          text-transform: uppercase;
+          font-size: 0.7em;
+          padding-left: 0.2em;
+          color: gray;
+        }
+      }
+    }
+  }
+}
