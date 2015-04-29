@@ -14,18 +14,7 @@
       {{/each}}
     </div>
     {{#each places as |place|}}
-      <div class='track'>
-        {{#each hours as |hour|}}
-          <div class='major-grid' style={{gridWidthStyle}}></div>
-          <div class='minor-grid' style={{gridWidthStyle}}></div>
-        {{/each}}
-
-
-        {{#each place.reservations as |reservation|}}
-          {{reservation-block reservation=reservation hourWidth=hourWidth
-            trackStart=start}}
-        {{/each}}
-      </div>
+      {{schedule-track place=place hours=hours hourWidth=hourWidth start=start}}
     {{/each}}
   </div>
 </div>

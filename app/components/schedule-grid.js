@@ -26,10 +26,5 @@ export default Ember.Component.extend({
   hourWidthStyle: function() {
     var width = this.get('hourWidth');
     return ("width:" + width + "px").htmlSafe();
-  }.property('hourWidth'),
-
-  gridWidthStyle: function() {
-    var width = this.get('hourWidth') / 2;
-    return ("width:" + width + "px").htmlSafe();
   }.property('hourWidth')
 });

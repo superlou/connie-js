@@ -20,4 +20,16 @@ export default Ember.Component.extend({
     var offset = start - this.get('trackStart');
     return offset / (1e3 * 3600) * this.get('hourWidth');
   }.property('reservation.event.start', 'trackStart', 'hourWidth'),
+
+  setupUi: function() {
+    this.$().draggable({
+      stack: '.tracks',
+      grid: [this.get('hourWidth')/12.0, 50]
+    });
+
+    this.$().resizable({
+      grid: [this.get('hourWidth')/12.0, 1],
+      handles: 'e, w'
+    });
+  }.on('didInsertElement', 'hourWidth')
 });
