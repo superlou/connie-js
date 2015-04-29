@@ -4,14 +4,14 @@ module.exports = function(app) {
 
   conRouter.get('/', function(req, res) {
     res.send({
-      'events': [
+      'conventions': [
         {
           id: 1,
-          name: 'Pre-Registration'
+          name: 'Bureaucracon 2014'
         },
         {
           id: 2,
-          name: 'Registration'
+          name: 'Bureaucracon 2015'
         }
       ]
     });
@@ -23,16 +23,15 @@ module.exports = function(app) {
 
   conRouter.get('/:id', function(req, res) {
     res.send({
-      'event': {
-        id: 1,
-        name: 'Pre-Registration'
+      'convention': {
+        id: req.params.id
       }
     });
   });
 
   conRouter.put('/:id', function(req, res) {
     res.send({
-      'event': {
+      'convention': {
         id: req.params.id
       }
     });
@@ -42,5 +41,5 @@ module.exports = function(app) {
     res.status(204).end();
   });
 
-  app.use('/api/events', conRouter);
+  app.use('/api/conventions', conRouter);
 };

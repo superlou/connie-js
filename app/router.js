@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('con', {path: '/con/:con_id'}, function() {
+  this.route('convention', {path: '/con/:con_id'}, function() {
     this.route('events', {path: '/events'}, function() {
       this.route('new', {path: '/new'});
       this.route('show', {path: '/:event_id'});

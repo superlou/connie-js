@@ -5,6 +5,6 @@ export default DS.Model.extend({
   description: DS.attr('string'),
   start: DS.attr('date'),
   finish: DS.attr('date'),
-  con: DS.belongsTo('con'),
+  convention: DS.belongsTo('convention'),
   reservations: DS.hasMany('reservations')
 });
