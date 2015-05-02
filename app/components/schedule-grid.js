@@ -26,5 +26,11 @@ export default Ember.Component.extend({
   hourWidthStyle: function() {
     var width = this.get('hourWidth');
     return ("width:" + width + "px").htmlSafe();
-  }.property('hourWidth')
+  }.property('hourWidth'),
+
+  actions: {
+    moveReservation: function(reservation, reservable, schedule) {
+      this.sendAction('moveReservation', reservation, reservable, schedule);
+    }
+  }
 });

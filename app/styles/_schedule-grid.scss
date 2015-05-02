@@ -49,6 +49,12 @@ $header-height: 40px;
             background: darken($background, 20);
           }
 
+          &.is-dirty {
+            border-left: 2px solid darken($background, 80);
+            background: darken($background, 50);
+            color: white;
+          }
+
           @include transition(background 0.1s linear);
         }
 
@@ -58,6 +64,12 @@ $header-height: 40px;
 
             &:hover {
               background: darken($background, 20);
+            }
+
+            &.is-dirty {
+              border-left: 2px solid darken($background, 80);
+              background: darken($background, 50);
+              color: white;
             }
 
             @include transition(background 0.1s linear);

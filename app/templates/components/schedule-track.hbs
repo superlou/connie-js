@@ -4,7 +4,7 @@
 {{/each}}
 
 
-{{#each place.reservations as |reservation|}}
+{{#each reservable.reservations as |reservation|}}
   {{reservation-block reservation=reservation hourWidth=hourWidth
     trackStart=start}}
 {{/each}}

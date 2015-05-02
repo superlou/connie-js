@@ -3,6 +3,11 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   attributeBindings: ['style'],
   classNames: ['reservation-block'],
+  classNameBindings: ['isDirty'],
+
+  isDirty: function() {
+    return (this.get('reservation.isDirty') || this.get('reservation.event.isDirty'));
+  }.property('reservation.isDirty', 'reservation.event.isDirty'),
 
   style: function() {
     return "width:" + this.get('width') + "px;left:" + this.get('left') + "px";

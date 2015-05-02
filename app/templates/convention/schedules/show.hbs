@@ -1,7 +1,13 @@
-<h1>{{model.name}}</h1>
+<div class='page-heading'>
+  <h1>{{model.name}}</h1>
+  <div class='actions'>
+    <a href='#' {{action 'save'}} class="btn {{showSave}}">Save Changes</a>
+  </div>
+</div>
 
 {{schedule-grid places=model.places events=model.events
   hourWidth=200
   start=model.start
   finish=model.finish
+  moveReservation='moveReservation'
   }}
