@@ -1,6 +1,10 @@
 {{#each hours as |hour|}}
-  <div class='grid major-grid' style={{gridWidthStyle}}></div>
-  <div class='grid minor-grid' style={{gridWidthStyle}}></div>
+  {{grid-block hourWidth=hourWidth type='major' hour=hour
+    selectEvent='selectEvent'
+    }}
+  {{grid-block hourWidth=hourWidth type='minor' hour=hour offset=30
+    selectEvent='selectEvent'
+    }}
 {{/each}}
 
 

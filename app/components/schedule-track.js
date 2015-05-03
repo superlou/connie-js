@@ -3,11 +3,6 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['track'],
 
-  gridWidthStyle: function() {
-    var width = this.get('hourWidth') / 2;
-    return ("width:" + width + "px").htmlSafe();
-  }.property('hourWidth'),
-
   setupUi: function() {
     var _this = this;
     this.$().droppable({
@@ -33,5 +28,11 @@ export default Ember.Component.extend({
         });
       }
     });
-  }.on('didInsertElement')
+  }.on('didInsertElement'),
+
+  actions: {
+    selectEvent: function(startTime) {
+      this.sendAction('selectEvent', startTime, this.get('reservable'));
+    }
+  }
 });

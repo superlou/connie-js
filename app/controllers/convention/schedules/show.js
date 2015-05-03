@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+  showCreateReservationModal: false,
+
   reservations: function() {
     var events = this.get('model.events');
     var reservations = [];
@@ -15,11 +17,14 @@ export default Ember.Controller.extend({
   }.property('model.events'),
 
   showSave: function() {
-    if (this.get('changedReservations').length) {
-      return 'show';
-    } else {
-      return 'hide';
-    }
+    return 'show';
+
+    // todo Fix logic
+    // if (this.get('changedReservations').length) {
+    //   return 'show';
+    // } else {
+    //   return 'hide';
+    // }
   }.property('changedReservations'),
 
   changedReservations: function() {

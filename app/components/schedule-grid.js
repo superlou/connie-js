@@ -11,7 +11,7 @@ export default Ember.Component.extend({
     var hours = [];
 
     while (current.isBefore(finish)) {
-      hours.push(current.format('{12hr}{tt}'))
+      hours.push(new Date(current.getTime()));
       current.advance('hour');
     }
 
@@ -31,6 +31,10 @@ export default Ember.Component.extend({
   actions: {
     moveReservation: function(reservation, reservable, schedule) {
       this.sendAction('moveReservation', reservation, reservable, schedule);
+    },
+
+    selectEvent: function(startTime, reservable) {
+      this.sendAction('selectEvent', startTime, reservable);
     }
   }
 });

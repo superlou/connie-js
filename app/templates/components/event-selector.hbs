@@ -1,0 +1,6 @@
+{{input value=name}}
+<ul>
+  {{#each events as |event|}}
+    <li><a href='#' {{action 'select' event}}>{{event.name}}</a></li>
+  {{/each}}
+</ul>

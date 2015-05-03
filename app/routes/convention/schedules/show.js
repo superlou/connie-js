@@ -5,6 +5,13 @@ export default Ember.Route.extend({
     return this.store.find('schedule', params.schedule_id);
   },
 
+  setupController: function(controller, model) {
+    this._super(controller, model);
+
+    var con = this.modelFor('convention');
+    controller.set('events', this.store.find('event', {convention_id: con.id}));
+  },
+
   actions: {
     moveReservation: function(reservation, reservable, schedule) {
       reservation.set('event.start', schedule[0]);
@@ -27,6 +34,33 @@ export default Ember.Route.extend({
           event.save().then((e) => { e.set('needsSave', false)});;
         }
       })
+    },
+
+    selectEvent: function(startTime, reservable) {
+      this.set('newReservationStartTime', startTime);
+      this.set('newReservationReservable', reservable);
+      this.controllerFor(this.routeName).set('showCreateReservationModal', true);
+    },
+
+    closeCreateReservationModal: function() {
+      this.controllerFor(this.routeName).set('showCreateReservationModal', false);
+    },
+
+    createReservation: function(event) {
+      this.controllerFor(this.routeName).set('showCreateReservationModal', false);
+      var reservation = this.store.createRecord('reservation', {
+        event: event,
+        reservable: this.get('newReservationReservable'),
+        needsSave: true
+      });
+
+      var start = new Date(this.get('newReservationStartTime'))
+      var finish = new Date(start).addMinutes(30);
+
+      event.set('start', start);
+      event.set('finish', finish);
+
+      event.set('needsSave', true);
     }
   }
 });

@@ -10,4 +10,14 @@
   start=model.start
   finish=model.finish
   moveReservation='moveReservation'
+  selectEvent='selectEvent'
   }}
+
+
+{{#if showCreateReservationModal}}
+  {{#modal-dialog translucentOverlay=true close='closeCreateReservationModal'}}
+    {{event-selector events=events
+      select='createReservation'
+      }}
+  {{/modal-dialog}}
+{{/if}}
