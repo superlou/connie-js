@@ -10,7 +10,8 @@ export default Ember.Component.extend({
   }.property('reservation.isDirty', 'reservation.event.isDirty'),
 
   style: function() {
-    return "width:" + this.get('width') + "px;left:" + this.get('left') + "px";
+    var style = "width:" + this.get('width') + "px;left:" + this.get('left') + "px";
+    return style.htmlSafe();
   }.property('width', 'left'),
 
   width: function() {
