@@ -42,5 +42,8 @@
     "glob": "^4.0.5",
     "http-proxy": "^1.10.1",
     "morgan": "^1.5.1"
+  },
+  "dependencies": {
+    "ember-cli-twitter-typeahead": "0.0.6"
   }
 }
