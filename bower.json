@@ -20,7 +20,6 @@
     "eonasdan-bootstrap-datetimepicker": "~4.7.14",
     "moment": "~2.10.2",
     "sugar": "~1.4.1",
-    "jquery-ui": "1.11.1",
-    "typeahead.js": "~0.11.1"
+    "jquery-ui": "1.11.1"
   }
 }

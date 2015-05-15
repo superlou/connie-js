@@ -18,6 +18,5 @@ var app = new EmberApp();
 // along with the exports of each module as its value.
 app.import('bower_components/svg-pan-zoom/dist/svg-pan-zoom.js');
 app.import('bower_components/sugar/release/sugar-full.min.js');
-app.import('bower_components/typeahead.js/dist/typeahead.bundle.js');
 
 module.exports = app.toTree();

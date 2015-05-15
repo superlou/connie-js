@@ -1,14 +1,14 @@
 <div class='page-heading'>
-  <h1>{{model.schedule.name}}</h1>
+  <h1>{{model.name}}</h1>
   <div class='actions'>
     <a href='#' {{action 'save'}} class="btn {{showSave}}">Save Changes</a>
   </div>
 </div>
 
-{{schedule-grid places=model.schedule.places events=model.schedule.events
+{{schedule-grid places=model.places events=model.events
   hourWidth=200
-  start=model.schedule.start
-  finish=model.schedule.finish
+  start=model.start
+  finish=model.finish
   moveReservation='moveReservation'
   selectEvent='selectEvent'
   }}
@@ -16,7 +16,7 @@
 
 {{#if showCreateReservationModal}}
   {{#modal-dialog translucentOverlay=true close='closeCreateReservationModal'}}
-    {{event-selector events=model.events
+    {{event-selector events=events
       select='createReservation'
       }}
   {{/modal-dialog}}

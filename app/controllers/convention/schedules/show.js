@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   showCreateReservationModal: false,
 
   reservations: function() {
-    var events = this.get('model.schedule.events');
+    var events = this.get('model.events');
     var reservations = [];
 
     events.forEach((event) => {
@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
     });
 
     return reservations;
-  }.property('model.schedule.events'),
+  }.property('model.events'),
 
   showSave: function() {
     return 'show';
@@ -31,5 +31,5 @@ export default Ember.Controller.extend({
     return this.get('reservations').filter((reservation) => {
       return reservation.get('needsSave') || reservation.get('event.needsSave');
     });
-  }.property('model.schedule.events.@each.isDirty', 'reservations.@each.isDirty')
+  }.property('model.events.@each.isDirty', 'reservations.@each.isDirty')
 });

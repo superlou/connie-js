@@ -2,12 +2,14 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(params) {
-    var con = this.modelFor('convention');
+    return this.store.find('schedule', params.schedule_id);
+  },
 
-    return Ember.RSVP.hash({
-      schedule: this.store.find('schedule', params.schedule_id),
-      events: this.store.find('event', {convention_id: con.id})
-    });
+  setupController: function(controller, model) {
+    this._super(controller, model);
+
+    var con = this.modelFor('convention');
+    controller.set('events', this.store.find('event', {convention_id: con.id}));
   },
 
   actions: {
@@ -20,7 +22,7 @@ export default Ember.Route.extend({
     },
 
     save: function() {
-      this.currentModel.events.forEach((event) => {
+      this.currentModel.get('events').forEach((event) => {
         if (event.get('needsSave') || event.get('reservable.needsSave')) {
 
           event.get('reservations').forEach((reservation) => {

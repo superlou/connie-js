@@ -1,12 +1,6 @@
-{{twitter-typeahead
-  content=events
-  displayKey="name"
-  valueToken="id"
-  }}
-
-<h2>Events without a Reservation</h2>
+{{input value=name}}
 <ul>
-  {{#each unreservedEvents as |event|}}
+  {{#each events as |event|}}
     <li><a href='#' {{action 'select' event}}>{{event.name}}</a></li>
   {{/each}}
 </ul>
