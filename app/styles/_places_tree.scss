@@ -1,0 +1,11 @@
+ul.places-tree {
+  width: 400px;
+}
+
+ul.places-tree, ul.places-tree ul {
+  padding-left: 10px;
+}
+
+.is-moving {
+    font-weight: bold;
+}

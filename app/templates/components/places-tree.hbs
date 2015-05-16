@@ -1,8 +1,6 @@
-<ul>
-  {{#if isMoving}}
-    <li><a href='#' {{action 'reparentTo' null}}>(top)</a></li>
-  {{/if}}
-  {{#each rootPlaces as |place|}}
-    {{place-node place=place move='move' isMoving=isMoving reparentTo='reparentTo'}}
-  {{/each}}
-</ul>
+{{#if isMoving}}
+  <li><a href='#' {{action 'reparentTo' null}}>(top)</a></li>
+{{/if}}
+{{#each rootPlaces as |place|}}
+  {{place-node place=place move='move' isMoving=isMoving reparentTo='reparentTo'}}
+{{/each}}

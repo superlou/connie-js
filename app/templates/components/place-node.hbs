@@ -1,5 +1,5 @@
 {{#if isMoving}}
-  <b><a href='#' {{action 'reparentTo' place}}>{{place.name}}</a></b>
+  <a href='#' {{action 'reparentTo' place}} class='is-moving'>{{place.name}}</a>
 {{else}}
   {{link-to place.name 'convention.places.show' place}}
 {{/if}}

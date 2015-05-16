@@ -3,6 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   isMoving: false,
   moveChild: null,
+  tagName: "ul",
+  classNames: ['places-tree'],
 
   rootPlaces: function() {
     return this.get('places').filter((place) => {

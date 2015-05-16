@@ -1,8 +1,10 @@
-<h1>Places</h1>
+<div class="left-column">
+  {{places-tree places=model
+    reparent='reparent'
+    isMoving=isMoving
+    reparentTo='reparentTo'}}
+</div>
 
-{{places-tree places=model
-  reparent='reparent'
-  isMoving=isMoving
-  reparentTo='reparentTo'}}
-
-{{outlet}}
+<div class="right-content">
+  {{outlet}}
+</div>
